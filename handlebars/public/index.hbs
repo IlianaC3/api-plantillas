@@ -1,0 +1,28 @@
+<h3>Lista de productos</h3>
+<h5><a href="/agregar">Agregar producto</a></h5>
+<table class="table table-bordered table-striped" id="result">
+    <thead>
+        <th>Id</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.price}}</td>
+            <td><img src="{{this.thumbnail}}" style="width: 25%" />
+            <td>
+                <a class="btn btn-outline-primary"
+                    href="/editar/{{this.id}}">Editar</a>
+                -
+                <a class="btn btn-outline-danger"
+                    onclick="eliminarProducto({{this.id}})">Eliminar</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

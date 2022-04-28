@@ -1,0 +1,30 @@
+<%- include('layouts/header') -%>
+<h3>Lista de productos</h3>
+<h5><a href="/agregar">Agregar producto</a></h5>
+<table class="table table-bordered table-striped" id="result">
+    <thead>
+        <th>Id</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <% data.forEach(function(unique) { %>
+        <tr>
+            <td><%= unique.id %></td>
+            <td><%= unique.title %></td>
+            <td><%= unique.price %></td>
+            <td><img src="<%= unique.thumbnail %>" style="width: 25%" />
+            <td>
+                <a class="btn btn-outline-primary"
+                    href="/editar/<%= unique.id %>">Editar</a>
+                -
+                <a class="btn btn-outline-danger"
+                    onclick="eliminarProducto('<%= unique.id %>')">Eliminar</a>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+<%- include('layouts/footer') -%>

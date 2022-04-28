@@ -1,0 +1,26 @@
+include layouts/header.pug
+h3 Lista de productos
+h5 
+    a(href="/agregar") Agregar producto
+table(class="table table-bordered table-striped" id="result")
+    thead
+        th Id
+        th Producto
+        th Precio
+        th Imagen
+        th Acciones
+    tbody
+        each unique in data
+            tr
+                td= unique.id
+                td= unique.title
+                td= unique.price
+                td  
+                    - let url= unique.thumbnail
+                    img(src=url style="width: 25%")
+                td
+                    - let id= unique.id
+                    a(class="btn btn-outline-primary" href="/editar/" + id) Editar
+                    -
+                    a(class="btn btn-outline-danger" onclick="eliminarProducto("+id+")") Eliminar
+include layouts/footer.pug

@@ -1,0 +1,19 @@
+include layouts/header.pug
+div(id="accionIngresar" class="row")
+    h3(class="col-sm-12") Ingresar nuevo producto
+    div(class="row")
+        div(class="col-sm-6")
+            a(href="/") Regresar
+    form
+        div(class="row")
+            div(class="col")
+                input(class="form-control" type="text" name="title" id="title" placeholder="Ingrese nombre del producto")
+            div(class="col")
+                input(class="form-control" type="number" name="price" id="price" placeholder="Ingrese precio del producto")
+        hr
+        div(class="row")
+            div(class="col")
+                input(class="form-control" type="url" name="thumbnail" id="thumbnail" placeholder="Ingrese imagen del producto")
+            div(class="col")
+                input(class="btn btn-primary col-sm-4" type="button" value="Enviar" onclick="EnviarDatos()")
+include layouts/footer.pug
